@@ -1,0 +1,61 @@
+{{- $distro := .distro -}}
+{{- $suite := .suite -}}
+{{- $radxa_mirror := .radxa_mirror -}}
+
+{{- $architecture := .architecture -}}
+
+architecture: {{ $architecture }}
+
+actions:
+# Installing GNOME hits connection reset bug frequently
+# Break into smaller steps to slow it down
+  - action: apt
+    description: Install display manager
+    packages:
+      - gdm3
+      - xorg
+  - action: apt
+    description: Install GNOME
+    packages:
+{{ if eq $distro "debian" }}
+      - task-gnome-desktop
+{{ else }}
+      - ubuntu-gnome-desktop
+{{ end }}
+
+  - action: apt
+    description: Install additional GNOME packages
+    packages:
+      - gnome-tweaks
+      - gnome-shell-extensions
+      - gnome-sushi
+      - gnome-system-monitor
+      - gnome-terminal
+      - gnome-control-center
+      - gnome-software
+      - gnome-logs
+      - gnome-disk-utility
+      - gnome-calendar
+      - gnome-weather
+      - gnome-photos
+      - gnome-music
+      - gnome-contacts
+      - gnome-todo
+      - gnome-clocks
+      - gnome-maps
+      - gnome-font-viewer
+      - gnome-user-docs
+      - gnome-backgrounds
+      - gnome-shell-pomodoro
+{{ if eq $suite "bookworm" }}
+      - gnome-shell-extension-gsconnect
+      - gnome-shell-extension-unite
+{{ end }}
+
+  - action: recipe
+    description: Install common desktop packages
+    recipe: .desktop.yaml
+    variables:
+      distro: {{ $distro }}
+      suite: {{ $suite }}
+      radxa_mirror: {{ $radxa_mirror }}

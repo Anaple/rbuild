@@ -52,7 +52,7 @@ jobs:
         flavors: ${{ fromJSON(needs.query.outputs.flavors )}}
     steps:
       - name: Build ${{ matrix.boards }}_${{ matrix.suites }}_${{ matrix.flavors }}
-        uses: radxa-repo/rbuild@main
+        uses: Anaple/rbuild@main
         with:
           board: ${{ matrix.boards }}
           suite: ${{ matrix.suites }}
@@ -73,7 +73,7 @@ jobs:
           - boards: rootfs
     steps:
       - name: Build ${{ matrix.boards }}_${{ matrix.suites }}_${{ matrix.flavors }}
-        uses: radxa-repo/rbuild@main
+        uses: Anaple/rbuild@main
         with:
           board: ${{ matrix.boards }}
           suite: ${{ matrix.suites }}

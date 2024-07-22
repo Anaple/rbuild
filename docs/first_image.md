@@ -2,7 +2,7 @@
 
 ## Install dependencies
 
-Currently, due to our dependency on [`debos`](https://github.com/go-debos/debos/issues/363), we can only run `rbuild` on x86 based system. If you are building in a virtual machine, you need to [enable nested virtualization](https://github.com/radxa-repo/rbuild/issues/16#issuecomment-1534176754), as KVM is required for building the image.
+Currently, due to our dependency on [`debos`](https://github.com/go-debos/debos/issues/363), we can only run `rbuild` on x86 based system. If you are building in a virtual machine, you need to [enable nested virtualization](https://github.com/Anaple/rbuild/issues/16#issuecomment-1534176754), as KVM is required for building the image.
 
 ### Debian 12 / Ubuntu 22.04
 
@@ -22,7 +22,7 @@ sudo touch /etc/containers/nodocker
 ## Check out the code
 
 ```bash
-git clone https://github.com/radxa-repo/rbuild.git
+git clone https://github.com/Anaple/rbuild.git
 ```
 
 ## Build your first image

@@ -121,7 +121,7 @@ Recall `rbuild` commit ID was saved in `/etc/radxa_image_fingerprint`, we will c
 ```bash
 RBUILD_REVISION='6d211a5998fdfc9f58fe7b9a2f507ec8c28199a2'
 cd .. # leave bullseye repo
-gh repo clone radxa-repo/rbuild
+gh repo clone Anaple/rbuild
 cd rbuild
 git switch --detach $RBUILD_REVISION
 ```
@@ -156,7 +156,7 @@ If the checked-out `rbuild` does not contain `managed_keyring` option, we need t
 ```bash
 git reset --hard $RBUILD_REVISION
 git am --abort
-curl -L https://github.com/radxa-repo/rbuild/commit/2a861f6fbc2c1d081d5d83aabfc99bda4abd38d3.patch | git am
+curl -L https://github.com/Anaple/rbuild/commit/2a861f6fbc2c1d081d5d83aabfc99bda4abd38d3.patch | git am
 ```
 
 We can then use `RBUILD_COMMAND` as a reference to reproduce the image. The exact command listed in `/etc/radxa_image_fingerprint` was meant to be run on GitHub's Ubuntu runner as root.

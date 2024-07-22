@@ -17,4 +17,4 @@ To build Ubuntu, there are additional requirements beyond what was listed in [Bu
 1. The host should run Ubuntu.
 2. The host Ubuntu version should be greater or equal to the version you plan to build.
 3. You should install `debos` on your system: `sudo apt-get update && sudo apt-get install -y debos`.
-4. Replace any `./rbuild` command with `sudo ./rbuild --native-build` like what we did in our [GitHub Action](https://github.com/radxa-repo/rbuild/blob/main/action.yaml#L78) (which runs on Ubuntu runner).
+4. Replace any `./rbuild` command with `sudo ./rbuild --native-build` like what we did in our [GitHub Action](https://github.com/Anaple/rbuild/blob/main/action.yaml#L78) (which runs on Ubuntu runner).

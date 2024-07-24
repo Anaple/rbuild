@@ -21,7 +21,7 @@ actions:
   - action: image-partition
     description: Set up swap
     imagename: .swap.img
-    imagesize: 4GiB
+    imagesize: 16GiB
     partitiontype: gpt
 
   - action: run

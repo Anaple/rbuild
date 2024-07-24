@@ -9,21 +9,22 @@ architecture: {{ $architecture }}
 
 actions:
   - action: recipe
-    description: Add vscodium Repo
+    description: Add ROS 2 Repo
     recipe: ../scripts/add_repo.yaml
     variables:
-      public_key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-      base_url: {{ $vscodium_mirror }}debs
-      suite: vscodium
+      public_key: https://gitee.com/ohhuo/rosdistro/raw/master/ros.asc
+      base_url: http://mirrors.tuna.tsinghua.edu.cn/ros2/ubuntu/
+      suite: jammy
+      origin: ros2
+      architecture: arm64
+
 
   - action: apt
     description: Install common desktop packages
     packages:
       - accountsservice
       - aha
-      - breeze-cursor-theme
       - clinfo
-      - codium
       - cups
       - desktop-base
 {{ if eq $distro "debian" }}
@@ -81,3 +82,4 @@ actions:
       - xiccd
 
 {{ end }}
+

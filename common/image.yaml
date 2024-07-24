@@ -140,17 +140,11 @@ actions:
     command: |
       set -e
       wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.1/ros-humble-desktop-0.3.1_20221218_arm64.deb
-      dpkg -i ros-humble-desktop-0.3.1_20221218_arm64.deb
+      apt install ./ros-humble-desktop-0.3.1_20221218_arm64.deb -y
       pip install vcstool colcon-common-extensions
       wget https://github.com/coder/code-server/releases/download/v4.91.1/code-server_4.91.1_arm64.deb
-      dpkg -i code-server_4.91.1_arm64.deb 
-      pip install pyserial networkx 
-      apt install ros-humble-librealsense2* -y
-      apt install ros-humble-realsense2-* -y
-  - action: apt
-    description: Install ROS2 packages
-    packages:
-      - ros-humble-foxglove-bridge
+      apt install ./code-server_4.91.1_arm64.deb -y
+      pip install pyserial networkx paho-mqtt===1.6.1
 
   - action: run
     description: Upgrade stale rootfs
@@ -158,7 +152,6 @@ actions:
     command: |
       set -e
       apt-get update
-      apt-get install -f -y
       apt-get full-upgrade -y --allow-downgrades
       apt-get full-upgrade -y --allow-downgrades
       apt-get autoremove -y --purge

@@ -30,7 +30,7 @@ actions:
   - action: image-partition
     description: Set up swap
     imagename: .swap.img
-    imagesize: 16GiB
+    imagesize: 12GiB
     partitiontype: gpt
 
   - action: run
@@ -60,7 +60,7 @@ actions:
   - action: image-partition
     description: Set up on-disk layout
     imagename: {{ $image }}
-    imagesize: 16GiB
+    imagesize: 12GiB
     partitiontype: {{ $partition_type }}
     mountpoints:
       - mountpoint: /
@@ -144,7 +144,9 @@ actions:
       pip install vcstool colcon-common-extensions
       wget https://github.com/coder/code-server/releases/download/v4.91.1/code-server_4.91.1_arm64.deb
       apt install ./code-server_4.91.1_arm64.deb -y
-      pip install pyserial networkx paho-mqtt===1.6.1
+      pip install pyserial networkx
+      
+      
 
   - action: run
     description: Upgrade stale rootfs
